@@ -1,0 +1,91 @@
+.canvas {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+
+.chat {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+
+	.chat-messages {
+		.chat-message {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+			transition: opacity 500ms ease-in-out;
+
+			.chat-message-client {
+				width: 36px;
+				height: 36px;
+				border-radius: 40px;
+			}
+
+			.chat-message-content {
+				background-color: $white;
+				border-radius: 30px 30px 30px 0;
+				box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+				padding: 6px 14px;
+				margin-left: 6px;
+			}
+
+			&.is-mirror {
+				flex-direction: row-reverse;
+
+				.chat-message-client {
+
+				}
+
+				.chat-message-content {
+					background-color: $dark;
+					color: $white;
+					border-radius: 30px 30px 0 30px;
+					margin-left: 0;
+					margin-right: 6px;
+				}
+			}
+
+			&.fade {
+				opacity: 0;
+			}
+		}
+	}
+
+	.chat-box {
+		background-color: $white;
+		box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+		border-radius: 30px;
+		display: flex;
+		align-items: center;
+
+		.chat-box-input {
+			width: 400px;
+			background: none;
+			border: none;
+			padding: 8px 16px;
+		}
+
+		.chat-box-send {
+			background: none;
+			border: none;
+			color: $primary;
+			padding: 5px 14px;
+			border-radius: 60px;
+			transition: 150ms all ease-in-out;
+			font-size: 20px;
+
+			&:hover {
+				background-color: $light;
+			}
+
+			&:active {
+				background-color: $gray-200;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}

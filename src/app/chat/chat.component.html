@@ -1,0 +1,17 @@
+<div class="chat">
+	<div class="chat-messages">
+		<div *ngFor="let message of rt.getMessages()" [ngClass]="'chat-message ' + (message.isMirror ? 'is-mirror' : '') + ' ' + (message.fade ? 'fade' : '')">
+			<img src="http://placehold.it/80x80" class="chat-message-client" />
+			
+			<div class="chat-message-content">
+				{{ message.getMessage() }}
+			</div>
+		</div>
+	</div>
+
+	<div class="chat-box">
+		<input type="text" class="chat-box-input" placeholder="Send message" #chatbox (keyup.enter)="sendMessage(chatbox.value); chatbox.value = ''" />
+
+		<button class="chat-box-send" (click)="sendMessage(chatbox.value); chatbox.value = ''"><i class="fas fa-paper-plane"></i></button>
+	</div>
+</div>

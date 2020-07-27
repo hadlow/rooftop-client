@@ -1,0 +1,51 @@
+// Input
+.input-text {
+	background-color: $white;
+	padding: 0.25rem 0.5rem;
+	border: 1px solid $gray-400;
+
+	&:focus {
+
+	}
+}
+
+// Buttons
+.btn {
+	background-color: $white;
+	border-radius: $border-radius;
+	border: none;
+	transition: 150ms all ease-in-out;
+	padding: 5px 10px;
+	font-size: $font-size-component;
+
+	&:hover {
+		background-color: $gray-200;
+	}
+
+	&:focus {
+		background-color: $gray-300;
+	}
+
+	&:focus, &:active {
+		outline: none;
+	}
+
+	.btn-icon {
+		margin-left: 0.5rem;
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.btn-#{$color} {
+		background-color: $value;
+		color: $white;
+
+		&:hover, &:focus {
+			background-color: darken($value, 10%);
+		}
+
+		&:active {
+			background-color: darken($value, 20%);
+		}
+	}
+}
